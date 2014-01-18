@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="./dist/css/bootstrap.min2.css" rel="stylesheet" media="screen">
+    <style>
+      
+      body{
+        background-color: #ffffff;
+      }
+      
+    </style>
+  
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="./dist/js/bootstrap.min.js"></script>
+    <script src="./dist/js/manage.js"></script>
+    <script src="http://www.parsecdn.com/js/parse-1.2.13.min.js"></script>
+    <script type="text/javascript" src="assets/twitterbootstrap/js/bootstrap-tab.js"></script>
+    <!--<script type="text/javascript" src="./dist/js/notLoggedIn.js"></script>-->
+     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      function logoutHome(){
+        Parse.initialize("2ICGEDAbu9xpPISmefOo6y4VvEYcw7W0oOF7Lp2T", "6tOKR4v4ERtZhk8VHahuCjoinJzZkTOcUxRPWKc5");
+        Parse.User.logOut();
+        window.location.replace('./index.html');
+      }
+    </script>
+    
+   
+  </head>
+
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="./main.html">PinHUD</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li><a href="./main.html">Overview</a></li>
+      <li class="active"><a href="./manage.html">Manage</a></li>
+      <li><a href="./launch.html" target="_blank">Launch</a></li>
+  </div><!-- /.navbar-collapse -->
+</nav>
+  
+<body data-spy="scroll" data-target="#menubar" onload="parse()">
+  
+ <div class="container" id="tableContainer" style="width: 100%">
+    <h1 id="welcome">Welcome!</h1>
+    <br>
+    <h2 id="tagline">Feel free to edit your store's info for our database.</h2><p class="muted">All we need is your store's pinterest username and a board of all of your pinned items.</p>
+        <!--<table id="excelDataTable" border="1"></table>-->
+    <form role="form">
+  <div class="form-group">
+    <label for="username">Pinterest Username</label>
+    <input type="text" class="form-control" id="username" onblur="updateUsername()" placeholder="Enter Pinterest Username" style="width:75%;">
+  </div>
+  <div class="form-group">
+    <label for="board">Pinned Item Board Name</label>
+    <input type="text" class="form-control" id="board" onblur="updateBoard()" placeholder="Enter Pinterest Board Name" style="width:75%;">
+  </div>
+</form>
+</body>
+
+</html>

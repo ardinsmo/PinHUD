@@ -83,7 +83,11 @@ function insertTable()
             tbody += "<center><a href=\""+object.get('Image')+"\">link</a></center>";
             tbody += "</td>"
             tbody += "<td>";
-            tbody += "<div class=\"checkbox\"><center><input type=\"checkbox\" id="+object.get('PinID')+"\"value=\"\" onclick=\"toggleForce('"+object.get('PinID')+"')\"></center></div>";
+            if (object.get('forceDisplay')) {
+                tbody += "<div class=\"checkbox\"><center><input type=\"checkbox\" id="+object.get('PinID')+"\"value=\"\" checked onclick=\"toggleForce('"+object.get('PinID')+"')\"></center></div>";
+            } else {
+                tbody += "<div class=\"checkbox\"><center><input type=\"checkbox\" id="+object.get('PinID')+"\"value=\"\" onclick=\"toggleForce('"+object.get('PinID')+"')\"></center></div>";
+            }
             tbody += "</td>"
             /*tbody += "<td>";
             if(object.get('type')==0)
@@ -143,7 +147,7 @@ query.find({
   success: function(results) {
     //alert(results.length);
     
-    alert("Results: "+results[0].get('forceDisplay'));
+    //alert("Results: "+results[0].get('forceDisplay'));
     results[0].set("forceDisplay",!results[0].get("forceDisplay"));
     results[0].save();
   },
