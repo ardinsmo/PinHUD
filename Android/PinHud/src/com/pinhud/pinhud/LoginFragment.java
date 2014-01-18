@@ -3,6 +3,7 @@ package com.pinhud.pinhud;
 import java.util.Locale;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -12,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -37,6 +39,8 @@ public class LoginFragment extends Fragment {
 
 			@Override
 			public void onClick(View arg0) {
+				final InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+			    imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
 				getUser = username.getText().toString();
 				getName = name.getText().toString();
 				savePreferences("stored", true);
