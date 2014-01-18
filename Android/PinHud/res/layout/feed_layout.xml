@@ -1,0 +1,27 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:id="@+id/scrollView" >
+   
+    <com.pinhud.pinhud.CardLayout
+        android:id="@+id/theLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#e3e3e3"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+    style="@style/nowCardStyle"
+    android:id="@+id/newList"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:visibility="gone"
+     >
+
+</RelativeLayout>
+        
+    </com.pinhud.pinhud.CardLayout>
+
+</ScrollView>
