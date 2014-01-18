@@ -28,9 +28,11 @@ function parse(){
     
     var query = new Parse.Query(TestObject);
 query.equalTo("userId", username);
+query.descending("Repins");
 query.find({
   success: function(results) {
      theResult=results;
+     document.getElementById("pin_count").innerHTML="You currently have "+results.length+" pins in our database!";
     //alert("Successfully retrieved " + results.length + " scores.");
     // Do something with the returned Parse.Object values
     
@@ -64,6 +66,7 @@ function insertTable()
     theader += "<th><center>Name</center></th>";
     theader += "<th><center>Number of Repins</center></th>";
     theader += "<th><center>URL of Image</center></th>";
+     theader += "<th><center>Force Display?</center></th>";
 
     for(var i = 0; i < num_rows; i++)
     {
@@ -83,6 +86,9 @@ function insertTable()
             tbody += "</td>"
             tbody += "<td>";
             tbody += "<center><a href=\""+object.get('Image')+"\">link</a></center>";
+            tbody += "</td>"
+            tbody += "<td>";
+            tbody += "<div class=\"checkbox\"><center><input type=\"checkbox\" id="+object.get('PinID')+"value=\"\"></center></div>";
             tbody += "</td>"
             /*tbody += "<td>";
             if(object.get('type')==0)
