@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="./dist/css/bootstrap.min2.css" rel="stylesheet" media="screen">
+    <link href="./dist/css/jumbotron-narrow.css" rel="stylesheet">
+    <style>
+      body{
+        font-weight: 200;
+      }
+      form{
+        font-weight:200;
+      }
+      #header{
+        background: #ffffff;
+      }
+      #huge{
+        font-size: 84px;
+        font-weight: 100;
+        padding-top: 10%;
+        padding-bottom: 5%;
+        margin-bottom: 0px;
+      }
+      p tagline{
+        padding-top:0px;
+        margin-top: 0px;
+        color: #aaaaaa;
+      }
+      #break{
+        height:10%;
+      }
+       footer{
+        position:fixed;
+        bottom:0px;
+        width:100%;
+        padding-bottom: 10px;
+      }
+    </style>
+  
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="./dist/js/bootstrap.min.js"></script>
+    <script src="http://www.parsecdn.com/js/parse-1.2.13.min.js"></script>
+    <script type="text/javascript" src="assets/twitterbootstrap/js/bootstrap-tab.js"></script>
+    <script type="text/javascript" src="./login.js"></script>    
+    
+  </head>
+  
+  
+<body data-spy="scroll" data-target="#menubar" onload="init()">
+ <div class="container">
+      <center>
+            <h1 id="huge">register</h1>
+        <form class="form-signin" role="form" style="font-weight:200; width:35%;">
+          <input type="text" class="form-control" placeholder="Email address" id="email" required autofocus>
+          <input type="password" class="form-control" placeholder="Password" id="pass" onkeydown="if (event.keyCode == 13) document.getElementById('clickme').click()" required>
+          <button class="btn btn-lg btn-default btn-block" type="button" onClick="register()" id="clickme" style="font-weight: 200;">Sign me up!</button>
+        </form>
+      </center>
+    </div>
+</body>
+<footer>
+  <center>
+  <a href="http://twitter.com/lovrhatr">@lovrhatr</a>
+  <br><small><font color=#8f8f8f>sharing how you <i>really</i> feel</font></small>
+  </center>
+</footer>
+</html>
