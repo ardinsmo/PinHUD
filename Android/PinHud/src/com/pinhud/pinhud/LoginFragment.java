@@ -30,21 +30,24 @@ public class LoginFragment extends Fragment {
         View view = inflater.inflate(R.layout.login_layout, container,
                 false);
         login = (Button) view.findViewById(R.id.login);
+        username = (EditText)view.findViewById(R.id.email);
+        name = (EditText)view.findViewById(R.id.password);
         
         login.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View arg0) {
-				getUser = username.getText().toString().toLowerCase(Locale.US);
+				getUser = username.getText().toString();
 				getName = name.getText().toString();
 				savePreferences("stored", true);
 				savePreferences("User", getUser);
 				savePreferences("Name", getName);
 				Fragment fragment = new FeedFragment();
 			    FragmentTransaction transaction = thisThing.getFragmentManager().beginTransaction();
-			    //transaction.add(R.id.container, fragment, "second");
+			    transaction.replace(R.id.fragment_container, fragment, "second");
 			    transaction.addToBackStack(null);
 			    transaction.commit();
+			    
 			}
 
 		});
