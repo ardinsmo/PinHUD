@@ -13,12 +13,15 @@ import android.view.View.OnClickListener;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.GridLayout;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 public class FeedFragment extends Fragment {
 
-		private CardLayout layout;
+		private GridLayout layout;
 		private RelativeLayout newCard;
+		private RelativeLayout newerCard;
 		
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	            Bundle savedInstanceState) {
@@ -26,12 +29,12 @@ public class FeedFragment extends Fragment {
 	        View view = inflater.inflate(R.layout.feed_layout, container,
 	                false);
 	        
-	        layout = (CardLayout) view.findViewById(R.id.theLayout);
-	        newCard = (RelativeLayout) view.findViewById(R.id.card_rel);
+	        layout = (GridLayout) view.findViewById(R.id.theLayout);
 	        newCard = (RelativeLayout) View.inflate(this.getActivity(), R.layout.main_list_card, null);
+	        newerCard = (RelativeLayout) View.inflate(this.getActivity(), R.layout.main_list_card, null);
 	        layout.addView(newCard);
-			newCard.startAnimation(AnimationUtils.loadAnimation(newCard.getContext(),
-					R.anim.slide_right));
+	        layout.addView(newerCard);
+	        
 			
 	        return view;
 	    }
