@@ -17,11 +17,13 @@
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="./dist/js/bootstrap.min.js"></script>
-    <script src="./dist/js/main.js"></script>
     <script src="http://www.parsecdn.com/js/parse-1.2.13.min.js"></script>
+    
+    <script src="./dist/js/launch.js"></script>
     <script type="text/javascript" src="assets/twitterbootstrap/js/bootstrap-tab.js"></script>
     <!--<script type="text/javascript" src="./dist/js/notLoggedIn.js"></script>-->
      <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+     
     <script type="text/javascript">
       function logoutHome(){
         Parse.initialize("2ICGEDAbu9xpPISmefOo6y4VvEYcw7W0oOF7Lp2T", "6tOKR4v4ERtZhk8VHahuCjoinJzZkTOcUxRPWKc5");
@@ -33,7 +35,7 @@
    
   </head>
   <body>
-    <div class="container" style="width:100%;">
+    <!--<div class="container" style="width:100%;">
         <div class="row">
             <div class="col-md-3">
                 <div class="panel panel-default" style="box-shadow: 8px 7px 10px #44030d;">
@@ -121,7 +123,21 @@
            
         </div>
         
+    </div>-->
+    
+    <script type="text/javascript"> function dragWord(dragEvent){ dragEvent.dataTransfer.setData("text/html", dragEvent.target.textContent+"|"+dragEvent.target.parentNode.id); } function dropWord(dropEvent){ var dropData = dropEvent.dataTransfer.getData("text/html"); var dropItems = dropData.split("|"); var prevElem = document.getElementById(dropItems[1]); prevElem.getElementsByTagName("div")[0].textContent = dropEvent.target.textContent; dropEvent.target.textContent = dropItems[0]; dropEvent.preventDefault(); } </script>
+
+
+    
+    <div id="main" role="main">
+
+    
     </div>
+    
+    <script type="text/javascript">
+    
+    
+  </script>
     
   </body>
   
