@@ -2,10 +2,14 @@ package com.pinhud.pinhud;
 
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.Menu;
 import android.widget.Toast;
 
@@ -46,8 +50,20 @@ public class MainActivity extends Activity {
 	}
 
 	private void handleFragments(Intent intent) {
+		loadSavedPreferences();
 
+	}
 
+	private void loadSavedPreferences(){
+		SharedPreferences shared = PreferenceManager.getDefaultSharedPreferences(this);
+		String pUser = shared.getString("User", "");
+		boolean check = shared.getBoolean("stored", false);
+		if(check){
+
+		}else{
+			LoginFragment test = new LoginFragment();
+			test.startActivity(getIntent());
+		}
 	}
 
 }

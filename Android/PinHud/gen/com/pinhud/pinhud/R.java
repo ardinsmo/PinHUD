@@ -34,6 +34,7 @@ public final class R {
         public static final int target_list_logo=0x7f020006;
     }
     public static final class id {
+<<<<<<< HEAD
         public static final int action_settings=0x7f0b0009;
         public static final int card_rel=0x7f0b0008;
         public static final int email=0x7f0b0005;
@@ -47,6 +48,15 @@ public final class R {
     }
     public static final class integer {
         public static final int config_slide_time=0x7f070000;
+=======
+        public static final int action_settings=0x7f090006;
+        public static final int email=0x7f090003;
+        public static final int fragment1=0x7f090000;
+        public static final int imageView1=0x7f090005;
+        public static final int login=0x7f090004;
+        public static final int password=0x7f090002;
+        public static final int progress=0x7f090001;
+>>>>>>> 234d7b4d17e1465639f95d079ecb924fc576f4d0
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
