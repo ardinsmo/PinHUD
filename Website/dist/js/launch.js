@@ -1,7 +1,8 @@
 
 google.load("visualization", "1", {packages:["corechart"]});
 var theResult;
-var TestObject
+var TestObject;
+var Users;
 var username;
 var num_force;
 var universal_str="";
@@ -11,6 +12,7 @@ var universal_str="";
     Parse.initialize("2ICGEDAbu9xpPISmefOo6y4VvEYcw7W0oOF7Lp2T", "6tOKR4v4ERtZhk8VHahuCjoinJzZkTOcUxRPWKc5");
    // alert("woring22");
     TestObject = Parse.Object.extend("Pins");
+    Users = Parse.Object.extend("Boards");
     username=Parse.User.current().get("username");
     //document.getElementById("welcome").innerHTML="Welcome, "+username+"!";
     /*var testObject = new TestObject();
@@ -32,7 +34,6 @@ query.equalTo("userId", username);
 
 query.equalTo("forceDisplay",true);
 query.limit(12);
-//alert("yoyoyo");
 query.find({
   success: function(results) {
      theResult=results;
@@ -130,10 +131,33 @@ function insertTheRest()
     
     document.getElementById('main').innerHTML = universal_str+tlist;
     
+    
+    var query = new Parse.Query(Users);
+query.equalTo("userId", username);
+query.limit(1);
+query.find({
+  success: function(results) {
+     document.getElementById('logo').innerHTML = results[0].get("username")+" <small>@PinHUD</small>";
+  },
+  error: function(error) {
+    alert("Error: " + error.code + " " + error.message);
+  }
+  
+});
    
     
     alignment();
 }
+
+/*document.addEventListener('scroll', function (event) {
+    if (document.body.scrollHeight == 
+        document.body.scrollTop +        
+        window.innerHeight) {
+        window.scrollBy(0,1);
+    scrolldelay = setTimeout('pageScroll()',10);
+    }
+});*/
+
 
 function alignment(){
        

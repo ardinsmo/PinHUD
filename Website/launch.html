@@ -11,8 +11,14 @@
         background-color: #C92228;
         padding: 10px;
       }
-      
+      .overlay{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+ 
+}
     </style>
+    
   
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script src="http://code.jquery.com/jquery.js"></script>
@@ -125,15 +131,15 @@
         
     </div>-->
     
-    <script type="text/javascript"> function dragWord(dragEvent){ dragEvent.dataTransfer.setData("text/html", dragEvent.target.textContent+"|"+dragEvent.target.parentNode.id); } function dropWord(dropEvent){ var dropData = dropEvent.dataTransfer.getData("text/html"); var dropItems = dropData.split("|"); var prevElem = document.getElementById(dropItems[1]); prevElem.getElementsByTagName("div")[0].textContent = dropEvent.target.textContent; dropEvent.target.textContent = dropItems[0]; dropEvent.preventDefault(); } </script>
-
-
     
     <div id="main" role="main">
 
     
     </div>
     
+    <div class="overlay" style="background-color: rgba(255, 255, 255, .85)">
+        <font id="logo" style="font-weight: 100; font-size: 30px;"><small>PinHUD</small></font>
+    </div>
     <script type="text/javascript">
     
     
