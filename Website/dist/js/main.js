@@ -1,13 +1,8 @@
-var myList = [{"name" : "abc", "age" : 50},
-              {"age" : "25", "hobby" : "swimming"},
-              {"name" : "xyz", "hobby" : "programming"}];
 
 google.load("visualization", "1", {packages:["corechart"]});
 var theResult;
 var TestObject
 var username;
-var loveNum=0;
-var hateNum=0;
 function parse(){
     Parse.initialize("2ICGEDAbu9xpPISmefOo6y4VvEYcw7W0oOF7Lp2T", "6tOKR4v4ERtZhk8VHahuCjoinJzZkTOcUxRPWKc5");
     TestObject = Parse.Object.extend("Pins");
@@ -88,7 +83,7 @@ function insertTable()
             tbody += "<center><a href=\""+object.get('Image')+"\">link</a></center>";
             tbody += "</td>"
             tbody += "<td>";
-            tbody += "<div class=\"checkbox\"><center><input type=\"checkbox\" id="+object.get('PinID')+"value=\"\"></center></div>";
+            tbody += "<div class=\"checkbox\"><center><input type=\"checkbox\" id="+object.get('PinID')+"\"value=\"\" onclick=\"toggleForce('"+object.get('PinID')+"')\"></center></div>";
             tbody += "</td>"
             /*tbody += "<td>";
             if(object.get('type')==0)
@@ -135,6 +130,36 @@ function insertTable()
     
 }
 
+
+function toggleForce(id){
+    //alert(id);
+    
+    var query = new Parse.Query(TestObject);
+query.equalTo("userId", username);
+query.equalTo("PinID",id);
+
+//query.descending("Repins");
+query.find({
+  success: function(results) {
+    //alert(results.length);
+    
+    alert("Results: "+results[0].get('forceDisplay'));
+    results[0].set("forceDisplay",!results[0].get("forceDisplay"));
+    results[0].save();
+  },
+  error: function(error) {
+    alert("Error: " + error.code + " " + error.message);
+  }
+  
+});
+    
+}
+
+function notify(){
+    //code
+    alert("yolo");
+}
+
 // Builds the HTML Table out of myList.
 function buildHtmlTable() {
     //parse();
@@ -177,5 +202,7 @@ function addAllColumnHeaders(myList)
 
     return columnSet;
 }
+
+
 
 
