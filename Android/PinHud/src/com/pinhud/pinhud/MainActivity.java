@@ -248,7 +248,9 @@ public class MainActivity extends Activity {
 		}
 		
 		if(result == 0){
-			
+			for(int i = 0; i < request.length(); i++){
+				
+			}
 		}
 		
 	}
