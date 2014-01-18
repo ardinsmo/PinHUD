@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="./dist/css/bootstrap.min2.css" rel="stylesheet" media="screen">
+    <style>
+      
+      body{
+        background-color: #ffc8c7;
+      }
+      
+    </style>
+  
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="./dist/js/bootstrap.min.js"></script>
+    <script src="./dist/js/main.js"></script>
+    <script src="http://www.parsecdn.com/js/parse-1.2.13.min.js"></script>
+    <script type="text/javascript" src="assets/twitterbootstrap/js/bootstrap-tab.js"></script>
+    <script type="text/javascript" src="./dist/js/notLoggedIn.js"></script>
+     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      function logoutHome(){
+        Parse.initialize("2ICGEDAbu9xpPISmefOo6y4VvEYcw7W0oOF7Lp2T", "6tOKR4v4ERtZhk8VHahuCjoinJzZkTOcUxRPWKc5");
+        Parse.User.logOut();
+        window.location.replace('./index.html');
+      }
+    </script>
+    
+  </head>
+
+    <nav class="navbar navbar-inverse navbar-default navbar-static-top" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">PinHUD</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="./overview.html">Overview</a></li>
+      <li><a href="./manage.html">Manage</a></li>
+      <li><a href="./launch.html" target="_blank">Launch</a></li>
+  </div><!-- /.navbar-collapse -->
+</nav>
+  
+<body data-spy="scroll" data-target="#menubar" onload="parse()">
+  
+ <div class="container" id="tableContainer" style="width: 100%">
+    <h1 id="welcome">Welcome!</h1>
+    <br>
+    <h2>You currently have X pins in our database!</h2><p class="muted">Want to stop sharing? Delete jobs here!</p>
+        <!--<table id="excelDataTable" border="1"></table>-->
+    <div id="theTable"></div>
+    <center>
+      <div id="piechart" style="width: 100%; height: 500px;"></div>
+    </center>
+  </div>
+</body>
+<footer style="background-color: #ffffff">
+  <center>
+ <a href="http://twitter.com/lovrhatr">@lovrhatr</a>
+  <br><small><font color=#8f8f8f>sharing how you <i>really</i> feel</font></small>
+  </center>
+</footer>
+</html>

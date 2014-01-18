@@ -9,8 +9,8 @@ var username;
 var loveNum=0;
 var hateNum=0;
 function parse(){
-    Parse.initialize("bU0hZTlz3h2KVEhZ4GAB6xfeDywUOih0hht2qKME", "3magOH6OvOWmGmhwOcBZ1R9W996K4Gi45fH4RC5W");
-    TestObject = Parse.Object.extend("Jobs");
+    Parse.initialize("2ICGEDAbu9xpPISmefOo6y4VvEYcw7W0oOF7Lp2T", "6tOKR4v4ERtZhk8VHahuCjoinJzZkTOcUxRPWKc5");
+    TestObject = Parse.Object.extend("Pins");
     username=Parse.User.current().get("username");
     document.getElementById("welcome").innerHTML="Welcome, "+username+"!";
     /*var testObject = new TestObject();
@@ -47,63 +47,8 @@ query.find({
   
 });
 
-
-var pieQueryLove = new Parse.Query(TestObject);
-pieQueryLove.equalTo("type","1");
-pieQueryLove.find({
-  success: function(results) {
-    //alert("Successfully retrieved " + results.length + " hate scores.");
-    // Do something with the returned Parse.Object values
-    hateNum=results.length
-    var pieQueryHate = new Parse.Query(TestObject);
-pieQueryHate.equalTo("type","0");
-pieQueryHate.find({
-  success: function(results) {
-    //alert("Successfully retrieved " + results.length + " love scores.");
-    // Do something with the returned Parse.Object values
-    loveNum=results.length
-    drawChart();
-  },
-  error: function(error) {
-    alert("Error: " + error.code + " " + error.message);
-  }
-});
-  },
-  error: function(error) {
-    alert("Error: " + error.code + " " + error.message);
-  }
-});
-
-
-
-//loadChart(loveNum,hateNum);
-
 //alert("completed");
 }
-
-
-
-    
-      google.setOnLoadCallback(parse);
-      
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Type', 'Number of jobs'],
-          ['Love',     loveNum],
-          ['Hate',      hateNum]
-        ]);
-
-        var options = {
-          title: 'Our userbase',
-          legend:{position:'bottom'},
-          colors:['#b8b8b8','black']
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-        chart.draw(data, options);
-      }
-
-
 
 function insertTable()
 {
@@ -115,9 +60,10 @@ function insertTable()
     var tbody = "";
 
     //theader += "<th>Date Added</th>";
-    theader += "<th><center>Recipient</center></th>";
-    theader += "<th><center>Type</center></th>";
-    theader += "<th><center>Delete</center></th>";
+    theader += "<th><center>Pin ID</center></th>";
+    theader += "<th><center>Name</center></th>";
+    theader += "<th><center>Number of Repins</center></th>";
+    theader += "<th><center>URL of Image</center></th>";
 
     for(var i = 0; i < num_rows; i++)
     {
@@ -127,9 +73,18 @@ function insertTable()
             //tbody += object.get('createdAt') ;
             //tbody += "</td>"
             tbody += "<td>";
-            tbody += object.get('receiver');
+            tbody += object.get('PinID');
             tbody += "</td>"
             tbody += "<td>";
+            tbody += object.get('Name');
+            tbody += "</td>"
+            tbody += "<td>";
+            tbody += object.get('Repins');
+            tbody += "</td>"
+            tbody += "<td>";
+            tbody += "<center><a href=\""+object.get('Image')+"\">link</a></center>";
+            tbody += "</td>"
+            /*tbody += "<td>";
             if(object.get('type')==0)
                 tbody += "Compliment";
             else
@@ -137,7 +92,7 @@ function insertTable()
             tbody += "</td>"
             tbody += "<td>";
             tbody += "<center><button id="+object.id+">Delete</button></center>";
-            tbody += "</td>"
+            tbody += "</td>"*/
         
         tbody += "</tr>";
     }
@@ -216,3 +171,5 @@ function addAllColumnHeaders(myList)
 
     return columnSet;
 }
+
+
