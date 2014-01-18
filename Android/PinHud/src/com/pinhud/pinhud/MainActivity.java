@@ -59,10 +59,15 @@ public class MainActivity extends Activity {
 		String pUser = shared.getString("User", "");
 		boolean check = shared.getBoolean("stored", false);
 		if(check){
-
+			FeedFragment fFrag = new FeedFragment();
+			fFrag.setArguments(getIntent().getExtras());
+			getFragmentManager().beginTransaction()
+            .add(R.id.fragment_container, fFrag).commit();
 		}else{
-			LoginFragment test = new LoginFragment();
-			test.startActivity(getIntent());
+			LoginFragment lFrag = new LoginFragment();
+			lFrag.setArguments(getIntent().getExtras());
+			getFragmentManager().beginTransaction()
+            .add(R.id.fragment_container, lFrag).commit();
 		}
 	}
 

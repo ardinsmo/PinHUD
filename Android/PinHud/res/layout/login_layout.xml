@@ -18,6 +18,22 @@
             android:visibility="gone"
             android:indeterminateOnly="true" />
 
+    	<EditText
+    	    android:id="@+id/email"
+    	    android:layout_width="match_parent"
+    	    android:layout_height="wrap_content"
+    	    android:layout_marginTop="99dp"
+    	    android:background="@drawable/edit_back"
+    	    android:ellipsize="start"
+    	    android:ems="10"
+    	    android:gravity="center"
+    	    android:hint="Pinterest username"
+    	    android:padding="4dp"
+    	    android:typeface="sans" >
+
+    	    <requestFocus />
+    	</EditText>
+
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
@@ -30,7 +46,6 @@
             android:ems="10"
             android:gravity="center"
             android:hint="Name"
-            android:inputType="textPassword"
             android:padding="4dp"
             android:typeface="sans" />
 
@@ -45,22 +60,6 @@
             android:background="@drawable/login_button_custom"
             android:minHeight="32dp"
             android:text="Login"
-            android:typeface="sans" />
-
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/password"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="99dp"
-            android:background="@drawable/edit_back"
-            android:ellipsize="start"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Pinterest username"
-            android:inputType="textEmailAddress"
-            android:padding="4dp"
             android:typeface="sans" />
 
         <TextView
