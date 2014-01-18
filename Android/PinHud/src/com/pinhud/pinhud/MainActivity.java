@@ -50,20 +50,19 @@ public class MainActivity extends Activity {
 	}
 
 	private void handleFragments(Intent intent) {
-
+		loadSavedPreferences();
 
 	}
 
 	private void loadSavedPreferences(){
-		FragmentManager fManage = getFragmentManager();
-		FragmentTransaction fragmentTransaction = fManage.beginTransaction();
 		SharedPreferences shared = PreferenceManager.getDefaultSharedPreferences(this);
 		String pUser = shared.getString("User", "");
 		boolean check = shared.getBoolean("stored", false);
 		if(check){
 
 		}else{
-			
+			LoginFragment test = new LoginFragment();
+			test.startActivity(getIntent());
 		}
 	}
 

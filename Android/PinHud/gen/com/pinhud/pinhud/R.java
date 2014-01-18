@@ -29,16 +29,13 @@ public final class R {
         public static final int target_list_logo=0x7f020005;
     }
     public static final class id {
-<<<<<<< HEAD
-        public static final int action_settings=0x7f080005;
-        public static final int email=0x7f080002;
-        public static final int imageView1=0x7f080004;
-        public static final int login=0x7f080003;
-        public static final int password=0x7f080001;
-        public static final int progress=0x7f080000;
-=======
-        public static final int action_settings=0x7f090000;
->>>>>>> 83109a2f5cc26d4a1ab41ab478ec10d81916fb97
+        public static final int action_settings=0x7f090006;
+        public static final int email=0x7f090003;
+        public static final int fragment1=0x7f090000;
+        public static final int imageView1=0x7f090005;
+        public static final int login=0x7f090004;
+        public static final int password=0x7f090002;
+        public static final int progress=0x7f090001;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
