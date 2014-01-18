@@ -30,12 +30,17 @@ public class FeedFragment extends Fragment {
 	                false);
 	        
 	        layout = (GridLayout) view.findViewById(R.id.theLayout);
-	        newCard = (RelativeLayout) View.inflate(this.getActivity(), R.layout.main_list_card, null);
-	        newerCard = (RelativeLayout) View.inflate(this.getActivity(), R.layout.main_list_card, null);
-	        layout.addView(newCard);
-	        layout.addView(newerCard);
+	        for (int i = 0; i < 3; i++){
+	        	createCard();
+	        }
 	        
 			
 	        return view;
 	    }
+		public void createCard(){
+			newCard = (RelativeLayout) View.inflate(this.getActivity(), R.layout.main_list_card, null);
+	        newerCard = (RelativeLayout) View.inflate(this.getActivity(), R.layout.main_list_card, null);
+			layout.addView(newCard);
+	        layout.addView(newerCard);
+		}
 }
