@@ -89,22 +89,33 @@ def get_data():
 
     while(pin_count < len(the_user_pins[0])):
         try:
+<<<<<<< HEAD
+=======
             # print pin_count
+>>>>>>> 4662fc8957364fa2dc0521d3732d7c28b22837eb
             repin_count = the_user_pins[0][pin_count]['repin_count']
             description = the_user_pins[0][pin_count]['description']
             image_large = the_user_pins[0][pin_count]['image_large_url']
             pin_count2 = 0
             while(pin_count2 < len(the_company_pins[0])):
+<<<<<<< HEAD
+                image_large_comp = the_company_pins[0][pin_count2]['image_large_url']
+                if(image_large == image_large_comp):
+=======
                 # print "sup" + str(pin_count2)
                 image_large_comp = the_company_pins[0][pin_count2]['image_large_url']
                 #print(image_large + " | " + image_large_comp)
                 if(image_large == image_large_comp):
                     #print "match found"
+>>>>>>> 4662fc8957364fa2dc0521d3732d7c28b22837eb
                     repin_count_array.append(repin_count)
                     description_array.append(description)
                     image_large_array.append(image_large)
                 pin_count2 = pin_count2 + 1
+<<<<<<< HEAD
+=======
             #pin_count = pin_count + 1
+>>>>>>> 4662fc8957364fa2dc0521d3732d7c28b22837eb
         except IndexError:
             print "YOLO"
         pin_count = pin_count + 1
