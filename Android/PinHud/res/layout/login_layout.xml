@@ -45,7 +45,7 @@
             android:ellipsize="start"
             android:ems="10"
             android:gravity="center"
-            android:hint="Name"
+            android:hint="Board Name"
             android:padding="4dp"
             android:typeface="sans" />
 
@@ -73,16 +73,5 @@
             android:gravity="center"
             android:textSize="30sp"
             android:text="PinHUD" />
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/login"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:text="We will use your Want to buy board to find products. If you want your pins to show up here use that board."
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:gravity="center" />
 
 </RelativeLayout>

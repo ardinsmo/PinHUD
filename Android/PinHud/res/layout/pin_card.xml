@@ -29,19 +29,4 @@
         android:layout_below="@+id/pinTitle"
         android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:id="@+id/pinOriginDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/pinDescription"
-        android:layout_centerHorizontal="true" />
-
-    <ImageView
-        android:id="@+id/pinOriginPicture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/pinPicture"
-        android:layout_below="@+id/pinOriginDescription"
-        android:src="@drawable/custombutton" />
-
 </RelativeLayout>
