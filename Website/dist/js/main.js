@@ -83,11 +83,11 @@ function insertTable()
             tbody += "<td>";
             tbody += "<center><a href=\""+object.get('Image')+"\">link</a></center>";
             tbody += "</td>"
-            tbody += "<td>";
+            tbody += "<td style=\"text-align:center;\">";
             if (object.get('forceDisplay')) {
-                tbody += "<div class=\"checkbox\"><center><input type=\"checkbox\" id="+object.get('PinID')+"\"value=\"\" checked onclick=\"toggleForce('"+object.get('PinID')+"')\"></center></div>";
+                tbody += "<div style=\"display:inline-block; margin:auto;\" class=\"checkbox\"><center><input type=\"checkbox\" id="+object.get('PinID')+"\"value=\"\" checked onclick=\"toggleForce('"+object.get('PinID')+"')\"></center></div>";
             } else {
-                tbody += "<div class=\"checkbox\"><center><input type=\"checkbox\" id="+object.get('PinID')+"\"value=\"\" onclick=\"toggleForce('"+object.get('PinID')+"')\"></center></div>";
+                tbody += "<div style=\"display:inline-block; margin:auto;\" class=\"checkbox\"><center><input type=\"checkbox\" id="+object.get('PinID')+"\"value=\"\" onclick=\"toggleForce('"+object.get('PinID')+"')\"></center></div>";
             }
             tbody += "</td>"
             /*tbody += "<td>";
@@ -168,10 +168,10 @@ function notify(){
 // Builds the HTML Table out of myList.
 function buildHtmlTable() {
     //parse();
-alert("Passed test");
-alert("The result is "+theResult);
+//alert("Passed test");
+//alert("The result is "+theResult);
     var columns = addAllColumnHeaders(theResult);
-alert("Columns is "+columns);
+//alert("Columns is "+columns);
 
     for (var i = 0 ; i < theResult.length ; i++) {
         var row$ = $('<tr/>');

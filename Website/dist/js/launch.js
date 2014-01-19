@@ -41,7 +41,7 @@ query.find({
      //document.getElementById("pin_count").innerHTML="You currently have "+results.length+" pins in our database!";
     //alert("Successfully retrieved " + results.length + " scores.");
     // Do something with the returned Parse.Object values
-    insertTable();
+    pullItems();
   },
   error: function(error) {
     alert("Error: " + error.code + " " + error.message);
@@ -52,6 +52,22 @@ query.find({
 //alert("completed");
 //}
 
+function pullItems() {
+    var query = new Parse.Query(Users);
+query.equalTo("userId", username);
+query.limit(1);
+query.find({
+  success: function(results) {
+    limit=results[0].get("DesiredDisplay");
+    insertTable();
+  },
+  error: function(error) {
+    alert("Error: " + error.code + " " + error.message);
+  }
+  
+});
+}
+
 function insertTable()
 {
     //alert("tabling");
@@ -60,7 +76,7 @@ function insertTable()
     var tbody = "";
     var tlist="";
     num_force=num_rows;
-    
+    //alert("yes");
     tlist+="<ul id=\"tiles\" style=\"list-style-type: none;\">";
     
     for(var i = 0; i < num_rows; i++){
@@ -146,14 +162,15 @@ query.find({
   
 });
    
-    
-    alignment();
+    setTimeout(alignment(), 1000);
+    //alignment();
 }
 
 function pageScrollUp(){
+    console.log('scrolling up')
     window.scrollBy(0,-1);
     if (document.body.scrollTop!=0) {
-        scrolldelay = setTimeout('pageScrollUp()',40);
+        scrolldelay = setTimeout('pageScrollUp()',50);
     }
     
     //alert(document.body.scrollTop);
@@ -163,11 +180,12 @@ function pageScrollUp(){
 
 function pageScrollDown(){
     //alert("down");
+    console.log('scrolling up')
     window.scrollBy(0,1);
     if (document.body.scrollHeight !== 
         document.body.scrollTop +        
         window.innerHeight) {
-    scrolldelay = setTimeout('pageScrollDown()',40);
+    scrolldelay = setTimeout('pageScrollDown()',50);
     }
 }
 
@@ -686,7 +704,6 @@ function alignment(){
           outerOffset: 10, // Optional, the distance to the containers border
           itemWidth: 210 // Optional, the width of a grid item
       });
-
       // Capture clicks on grid items.
       /*handler.click(function(){
         // Randomize the height of the clicked item.
@@ -697,7 +714,7 @@ function alignment(){
         handler.wookmark();
       });*/
     })(jQuery);
-    
+ pageScrollDown();   
 }
 
 

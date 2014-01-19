@@ -1,8 +1,10 @@
 var theResult;
-var TestObject
+var TestObject;
+var Users;
 var username;
 function parse(){
     Parse.initialize("2ICGEDAbu9xpPISmefOo6y4VvEYcw7W0oOF7Lp2T", "6tOKR4v4ERtZhk8VHahuCjoinJzZkTOcUxRPWKc5");
+    Users = Parse.Object.extend("Boards");
     TestObject = Parse.Object.extend("Boards");
     username=Parse.User.current().get("username");
     document.getElementById("welcome").innerHTML="User: "+username;
@@ -66,7 +68,7 @@ function yell(){
 
 function updateUsername() {
    if (theResult.length==0) {
-   alert("beginning");
+   //alert("beginning");
         var obj = new TestObject();
         obj.set("username",document.getElementById("username").value);
         obj.set("userId",Parse.User.current().get("username"));
@@ -74,7 +76,7 @@ function updateUsername() {
         //alert("done");
         //parse();
     } else {
-        var query = new Parse.Query(TestObject);
+        var query = new Parse.Query(Parse.Object.extend("Boards"));
         query.equalTo("userId", username);
         query.find({
             success: function(results) {
@@ -113,11 +115,24 @@ function updateBoard() {
 }
 
 function update(){
-    alert("updated");
+    var obj;
+    //alert(theResult.length);
+    if (theResult.length==0) {
+        obj = new TestObject();
+    } else {
+        obj = theResult[0];   
+    }
+        //alert("obj created");
+        obj.set("company_board",document.getElementById("board").value);
+        obj.set("username",document.getElementById("username").value);
+        obj.set("userId",Parse.User.current().get("username"));
+        obj.set("DesiredDisplay",document.getElementById("pins").value);
+        obj.save();
+    /*alert("updated");
      if (theResult.length==0) {
-   alert("beginning");
+   //alert("beginning");
         var obj = new TestObject();
-        alert("obj created");
+        //alert("obj created");
         obj.set("company_board",document.getElementById("board").value);
         obj.set("username",document.getElementById("username").value);
         obj.set("userId",Parse.User.current().get("username"));
@@ -126,29 +141,35 @@ function update(){
         //alert("done");
         //parse();
     } else {
-        TestObject = Parse.Object.extend("Boards");
-        var query2 = new Parse.Query(TestObject);
-        query2.equalTo("userId", username);
-        alert(username);
-        
-        query2.find({
-            success: function(results) {
-                 alert(results.length);
-                results[0].set("company_board",document.getElementById("board").value);
-                results[0].set("username",document.getElementById("username").value);
-                alert("here");
-                results[0].set("DesiredDisplay",document.getElementById("pins").value);
-                results[0].save();
-            },
-            error: function(error) {
-                alert("Error: " + error.code + " " + error.message);
-            }
-        });
-    }
+        alert(theResult.length);
+        var query = new Parse.Query(Users);
+query.equalTo("userId", username);
+query.limit(1);
+query.find({
+  success: function(results) {
+     alert("success");
+  },
+  error: function(error) {
+    alert("Error: " + error.code + " " + error.message);
+  }
+  
+});
+
+        var query = new Parse.Query(TestObject);
+        query.find({
+  success: function(results) {
+   
+  },
+  error: function(error) {
+    alert("Error: " + error.code + " " + error.message);
+  }
+  
+});
+    }*/
 }
 
 function submit(){
-    alert("Submitting...");
+    //alert("Submitting...");
     /*alert(document.getElementById("username").innerHTML);
     var obj = TestObject;
     obj.set("userId",username);*/
