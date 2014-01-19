@@ -6,6 +6,7 @@ var Users;
 var username;
 var num_force;
 var universal_str="";
+var limit=20;
 
 //function parse(){
     //alert("#butts");
@@ -33,7 +34,7 @@ query.equalTo("userId", username);
 
 
 query.equalTo("forceDisplay",true);
-query.limit(12);
+query.limit(limit);
 query.find({
   success: function(results) {
      theResult=results;
@@ -80,14 +81,14 @@ function insertTable()
 }
 
 function addRest(){
-    alert(num_force);
+    //alert(num_force);
      var query = new Parse.Query(TestObject);
 query.equalTo("userId", username);
 
 query.equalTo("forceDisplay",false);
 query.descending("Repins");
-if (num_force<12) {
-    query.limit(12-num_force);
+if (num_force<limit) {
+    query.limit(limit-num_force);
 } else {
     query.limit(0);
 }
@@ -125,7 +126,7 @@ function insertTheRest()
     tlist+="<li><div class=\"panel panel-default\" style=\"box-shadow: 8px 7px 10px #44030d; width:200px;\"><div class=\"panel-body\"><img src="+theResult[i].get("Image")+" style=\"height: width; width:100%;\"></div><div class=\"panel-body\" style=\"background-color: #ffffff; width:100%;\"><h4>"+theResult[i].get("Name")+"<br><small>"+theResult[i].get("Repins")+" repins</small></h4></div></div></li>";
     
     }
-    alert("yolo");
+    //alert("yolo");
     tlist +="</ul>";
     //alert(tlist);
     
@@ -149,14 +150,37 @@ query.find({
     alignment();
 }
 
-/*document.addEventListener('scroll', function (event) {
+function pageScrollUp(){
+    window.scrollBy(0,-1);
+    if (document.body.scrollTop!=0) {
+        scrolldelay = setTimeout('pageScrollUp()',40);
+    }
+    
+    //alert(document.body.scrollTop);
+    
+    
+}
+
+function pageScrollDown(){
+    //alert("down");
+    window.scrollBy(0,1);
+    if (document.body.scrollHeight !== 
+        document.body.scrollTop +        
+        window.innerHeight) {
+    scrolldelay = setTimeout('pageScrollDown()',40);
+    }
+}
+
+document.addEventListener('scroll', function (event) {
     if (document.body.scrollHeight == 
         document.body.scrollTop +        
         window.innerHeight) {
-        window.scrollBy(0,1);
-    scrolldelay = setTimeout('pageScroll()',10);
+        //alert("bottom");
+        pageScrollUp();
+    } else if (document.body.scrollTop==0) {
+        pageScrollDown();
     }
-});*/
+});
 
 
 function alignment(){

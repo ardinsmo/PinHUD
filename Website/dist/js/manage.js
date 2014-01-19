@@ -30,7 +30,14 @@ query.find({
         document.getElementById("username").value=results[0].get('username');
      //if (!results[0].get('board')==null)
         document.getElementById("board").value=results[0].get('company_board');
-        alert("hellll yeah");
+        
+        if (results[0].get('DesiredDisplay')==null) {
+            document.getElementById("pins").value=20;
+        } else {
+            document.getElementById("pins").value=results[0].get('DesiredDisplay');
+        }
+        
+        //alert("hellll yeah");
     //alert("Successfully retrieved " + results.length + " scores.");
     // Do something with the returned Parse.Object values
     
@@ -52,19 +59,19 @@ query.find({
 
 function yell(){
 //alert("Yelling!");
-if (theResult.length==0) {
-    alert("none");
-}
+    if (theResult.length==0) {
+        alert("none");
+    }
 }
 
 function updateUsername() {
-   if (!theResult.length==0) {
+   if (theResult.length==0) {
    alert("beginning");
         var obj = new TestObject();
         obj.set("username",document.getElementById("username").value);
         obj.set("userId",Parse.User.current().get("username"));
         obj.save();
-        alert("done");
+        //alert("done");
         //parse();
     } else {
         var query = new Parse.Query(TestObject);
@@ -88,7 +95,7 @@ function updateBoard() {
         obj.set("company_board",document.getElementById("board").value);
         obj.set("userId",Parse.User.current().get("username"));
         obj.save();
-        alert("done");
+        //alert("done");
         //parse();
     } else {
         var query = new Parse.Query(TestObject);
@@ -96,6 +103,41 @@ function updateBoard() {
         query.find({
             success: function(results) {
                 results[0].set("company_board",document.getElementById("board").value);
+                results[0].save();
+            },
+            error: function(error) {
+                alert("Error: " + error.code + " " + error.message);
+            }
+        });
+    }
+}
+
+function update(){
+    alert("updated");
+     if (theResult.length==0) {
+   alert("beginning");
+        var obj = new TestObject();
+        alert("obj created");
+        obj.set("company_board",document.getElementById("board").value);
+        obj.set("username",document.getElementById("username").value);
+        obj.set("userId",Parse.User.current().get("username"));
+        obj.set("DesiredDisplay",document.getElementById("pins").value);
+        obj.save();
+        //alert("done");
+        //parse();
+    } else {
+        TestObject = Parse.Object.extend("Boards");
+        var query2 = new Parse.Query(TestObject);
+        query2.equalTo("userId", username);
+        alert(username);
+        
+        query2.find({
+            success: function(results) {
+                 alert(results.length);
+                results[0].set("company_board",document.getElementById("board").value);
+                results[0].set("username",document.getElementById("username").value);
+                alert("here");
+                results[0].set("DesiredDisplay",document.getElementById("pins").value);
                 results[0].save();
             },
             error: function(error) {
