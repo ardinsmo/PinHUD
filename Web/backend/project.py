@@ -38,12 +38,8 @@ def index():
 def get_data():
     #\
     #\
-    print request
     #\
     data = request.json# This pulls the data from the POST
-    print data # This will show you what it looks like
-    #\
-    print "You said '%s', '%s', '%s', '%s' " % (data['user_pinterest_name'], data['user_board_name'], data['company_pinterest_name'], data['company_board_name']) # Returns a nothing
     repin_count_array = []
     description_array = []
     image_large_array = []
@@ -73,7 +69,6 @@ def get_data():
     the_user_pins = my_client.boards(user_board_id).pins.get(page_size=number_of_pins_to_return)
     #print the_user_pins
     x = len(the_user_pins)
-    print("LENGTH" + str(x))
 
     #Hellish work around for making the company User()
     the_company_board = my_client.boards
@@ -83,39 +78,21 @@ def get_data():
 
     #Company pins
     the_company_pins = my_client.boards(company_board_id).pins.get(page_size=number_of_pins_to_return)
-    #print the_company_pins
-    print
-    print
+
 
     while(pin_count < len(the_user_pins[0])):
         try:
-<<<<<<< HEAD
-=======
-            # print pin_count
->>>>>>> 4662fc8957364fa2dc0521d3732d7c28b22837eb
             repin_count = the_user_pins[0][pin_count]['repin_count']
             description = the_user_pins[0][pin_count]['description']
             image_large = the_user_pins[0][pin_count]['image_large_url']
             pin_count2 = 0
             while(pin_count2 < len(the_company_pins[0])):
-<<<<<<< HEAD
                 image_large_comp = the_company_pins[0][pin_count2]['image_large_url']
                 if(image_large == image_large_comp):
-=======
-                # print "sup" + str(pin_count2)
-                image_large_comp = the_company_pins[0][pin_count2]['image_large_url']
-                #print(image_large + " | " + image_large_comp)
-                if(image_large == image_large_comp):
-                    #print "match found"
->>>>>>> 4662fc8957364fa2dc0521d3732d7c28b22837eb
                     repin_count_array.append(repin_count)
                     description_array.append(description)
                     image_large_array.append(image_large)
                 pin_count2 = pin_count2 + 1
-<<<<<<< HEAD
-=======
-            #pin_count = pin_count + 1
->>>>>>> 4662fc8957364fa2dc0521d3732d7c28b22837eb
         except IndexError:
             print "YOLO"
         pin_count = pin_count + 1
