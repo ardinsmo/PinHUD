@@ -162,7 +162,7 @@ query.find({
   
 });
    
-    setTimeout(alignment(), 1000);
+    setTimeout(alignment(), 3000);
     //alignment();
 }
 
